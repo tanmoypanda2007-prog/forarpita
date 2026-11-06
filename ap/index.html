@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise For Madam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- নাইট স্কাই ব্যাকগ্রাউন্ড এলিমেন্টস -->
+    <div class="night-sky">
+        <div class="moon">🌙</div>
+        <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </div>
+
+    <div class="app-container">
+        
+        <!-- Screen 1: Welcome -->
+        <div id="screen-1" class="app-screen active">
+            <div class="avatar-holder">🐱</div>
+            <h1 class="main-title">Hello, Madam</h1>
+            <p class="desc-text">Today is your special day! But wait... this place is missing a little magic...</p>
+            <button class="nav-btn" onclick="nextScreen(2)">Let's Begin 💖</button>
+        </div>
+
+        <!-- Screen 2: Special Number -->
+        <div id="screen-2" class="app-screen">
+            <h2 class="section-title">A Special Number</h2>
+            <p class="desc-text">Let's see how many wonderful years you've collected...</p>
+            <div class="counter-box">
+                <div class="slot" id="slot-1">?</div>
+                <div class="slot" id="slot-2">?</div>
+            </div>
+            <button id="reveal-btn" class="nav-btn" onclick="revealAge()">Reveal ✨</button>
+            <button id="age-next-btn" class="nav-btn hidden" onclick="nextScreen(3)">Next ➔</button>
+        </div>
+
+        <!-- Screen 3: 4 Things I Love About You -->
+        <div id="screen-3" class="app-screen">
+            <h2 class="section-title">Things I Respect & Love About You</h2>
+            <p class="card-counter"><span id="current-card">1</span>/4</p>
+            <div class="msg-card-container">
+                <div id="message-card" class="message-card">
+                    The way your presence always brings joy and positive vibes. ✨
+                </div>
+            </div>
+            <button class="nav-btn" id="card-btn" onclick="nextCard()">Next Card ❤</button>
+        </div>
+
+        <!-- Screen 4: Pop the Balloons -->
+        <div id="screen-4" class="app-screen">
+            <h2 class="section-title">Pop the Balloons</h2>
+            <p class="desc-text">Tap each balloon to see what I think of you! 🎈</p>
+            <div class="balloon-rack" id="balloon-rack">
+                <!-- ডায়নামিক বেলুন এখানে আসবে -->
+            </div>
+            <button id="balloon-next-btn" class="nav-btn hidden" onclick="nextScreen(5)">Next ➔</button>
+        </div>
+
+        <!-- Screen 5: Cute Memories -->
+        <div id="screen-5" class="app-screen">
+            <h2 class="section-title">Madam's Memories</h2>
+            <p class="desc-text">Moments to treasure forever... 📸</p>
+            <div class="photo-frame">
+                <!-- এখানে প্রথম ছবির সঠিক ফরম্যাট pic1.jpg.jpeg দেওয়া হলো -->
+                <img id="memory-img" src="images/pic1.jpg.jpeg" alt="Memory">
+            </div>
+            <button class="nav-btn" id="photo-btn" onclick="nextPhoto()">Next Memory ➔</button>
+        </div>
+
+        <!-- Screen 6: Make a Wish -->
+        <div id="screen-6" class="app-screen">
+            <h2 class="section-title">Make a Wish!</h2>
+            <p class="desc-text">Tap the flame on each candle to blow it out.</p>
+            <div class="cake-area">
+                <div class="candles-row">
+                    <div class="candle" onclick="blowCandle(this)"><div class="flame"></div><div class="wick"></div></div>
+                    <div class="candle" onclick="blowCandle(this)"><div class="flame"></div><div class="wick"></div></div>
+                    <div class="candle" onclick="blowCandle(this)"><div class="flame"></div><div class="wick"></div></div>
+                    <div class="candle" onclick="blowCandle(this)"><div class="flame"></div><div class="wick"></div></div>
+                </div>
+                <div class="big-cake">🎂</div>
+            </div>
+        </div>
+
+        <!-- Screen 7: Celebration Letter -->
+        <div id="screen-7" class="app-screen">
+            <h1 class="wish-banner">Yay! Happy Birthday Madam</h1>
+            <div class="avatar-holder">🎉</div>
+            <button class="nav-btn" onclick="nextScreen(8)">Open Your Letter ✉</button>
+        </div>
+
+        <!-- Screen 8: The Main Letter -->
+        <div id="screen-8" class="app-screen">
+            <h2 class="section-title">My Dear Madam</h2>
+            <div class="letter-box">
+                <p>Today is a beautiful reminder of how lucky we are to have someone as inspiring and amazing as you in our lives.</p>
+                <p>You bring so much happiness, warmth, and grace just by being yourself. Over time, so many wonderful moments have found a special place in my heart.</p>
+                <p>No matter where life takes us, I will always cherish these memories. I hope your day is filled with pure joy, laughter, and everything you've ever dreamed of.</p>
+                <p class="letter-closing">Happy Birthday, Arpita(madam)! ❤️</p>
+            </div>
+            <button class="nav-btn" onclick="nextScreen(9)">One last thing ➔</button>
+        </div>
+
+        <!-- Screen 9: The Last Gift Box -->
+        <div id="screen-9" class="app-screen">
+            <h2 class="section-title">One last thing for you...</h2>
+            <p class="desc-text">Tap the gift to unlock the final message.</p>
+            <div class="gift-box-wrapper" onclick="openFinalGift()">
+                <div class="mystery-gift">🎁</div>
+            </div>
+        </div>
+
+        <!-- Screen 10: Ending Screen -->
+        <div id="screen-10" class="app-screen">
+            <div class="avatar-holder">💖</div>
+            <h2 class="section-title">Thank you for being in my life!</h2>
+            <p class="desc-text">I hope this little world made you smile today.</p>
+            <h3 class="final-wish">Happy Birthday once again, Arpita! 💕</h3>
+            <p class="the-end">— The End —</p>
+        </div>
+
+        <!-- নিচের স্ট্যাটিক গোল্ডেন গ্লোবস -->
+        <div class="bottom-marbles">
+            <span class="marble"></span>
+            <span class="marble"></span>
+            <span class="marble"></span>
+            <span class="marble"></span>
+            <span class="marble"></span>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

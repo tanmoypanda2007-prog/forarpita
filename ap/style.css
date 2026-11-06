@@ -1,0 +1,252 @@
+:root {
+    --bg-dark: #0d1b2a;
+    --card-blue: #1b263b;
+    --gold: #e0a96d;
+    --pink: #ff4d6d;
+    --text-white: #f8f9fa;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050c14;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* নাইট থিম ব্যাকগ্রাউন্ড */
+.night-sky {
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    pointer-events: none;
+}
+.moon { font-size: 2.2rem; filter: drop-shadow(0 0 10px #ffbe0b); }
+.stars { color: var(--gold); letter-spacing: 5px; font-size: 1.1rem; }
+
+/* অ্যাপ কন্টেইনার */
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    background: linear-gradient(to bottom, #111e38, #070f24);
+    border-radius: 30px;
+    position: relative;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* স্ক্রিন ট্রানজিশন */
+.app-screen {
+    display: none;
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out forwards;
+    height: 85%;
+    overflow-y: auto;
+}
+.app-screen.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* উপাদানগুলোর ডিজাইন */
+.avatar-holder {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: float 3s infinite ease-in-out;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1.main-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+.section-title {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    margin-bottom: 15px;
+}
+.desc-text {
+    font-size: 0.95rem;
+    color: #a4b3c6;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* বাটন ডিজাইন */
+.nav-btn {
+    background: linear-gradient(135deg, #f72585, #b5179e);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(247, 37, 133, 0.3);
+    transition: transform 0.2s, background 0.3s;
+}
+.nav-btn:active { transform: scale(0.96); }
+.hidden { display: none !important; }
+
+/* স্ক্রিন ২: বিশেষ নাম্বার কাউন্টার */
+.counter-box {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+}
+.slot {
+    width: 70px;
+    height: 90px;
+    background: var(--card-blue);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 90px;
+    color: var(--gold);
+}
+
+/* স্ক্রিন ৩: ১২টি মেসেজ কার্ড */
+.card-counter { color: var(--gold); font-weight: bold; }
+.msg-card-container {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.message-card {
+    background: var(--card-blue);
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* স্ক্রিন ৪: বেলুন পপিং */
+.balloon-rack {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+.live-balloon {
+    width: 60px;
+    height: 75px;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+}
+.live-balloon:active { transform: scale(0.8); }
+
+/* স্ক্রিন ৫: ফটোর ফ্রেম */
+.photo-frame {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 30px auto;
+    border: 6px solid white;
+    border-bottom: 30px solid white;
+    transform: rotate(-3deg);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+/* স্ক্রিন ৬: মোমবাতি ও কেক */
+.cake-area { margin-top: 40px; }
+.candles-row { display: flex; justify-content: center; gap: 15px; margin-bottom: -10px; }
+.candle { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.wick { width: 6px; height: 30px; background: #ced4da; border-radius: 3px; }
+.flame {
+    width: 12px;
+    height: 18px;
+    background: radial-gradient(#ffbe0b, #fb5607);
+    border-radius: 50% 50% 20% 20%;
+    animation: flicker 0.1s infinite alternate;
+}
+@keyframes flicker { from { transform: scale(1); } to { transform: scale(1.15); } }
+.candle.out .flame { display: none; }
+
+.big-cake { font-size: 5.5rem; }
+
+/* স্ক্রিন ৮: প্রিমিয়াম চিঠি */
+.letter-box {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-height: 250px;
+    overflow-y: auto;
+    border-left: 4px solid var(--pink);
+    margin-bottom: 25px;
+}
+.letter-closing {
+    font-weight: bold;
+    color: var(--pink);
+    margin-top: 15px;
+}
+
+/* স্ক্রিন ৯: রহস্যময় গিফট */
+.gift-box-wrapper { margin: 50px 0; }
+.mystery-gift {
+    font-size: 5.5rem;
+    cursor: pointer;
+    animation: pulse 1.2s infinite alternate;
+    display: inline-block;
+}
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.12); } }
+
+/* স্ক্রিন ১০: শেষ উইশ */
+.final-wish { color: var(--pink); font-size: 1.3rem; margin: 20px 0; }
+.the-end { font-size: 0.85rem; color: gray; letter-spacing: 2px; }
+
+/* নিচের মার্বেলস/গ্লোবস */
+.bottom-marbles {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+.marble {
+    width: 35px;
+    height: 20px;
+    background: radial-gradient(circle at 50% 30%, #e0a96d 0%, #875c2e 80%);
+    border-radius: 50%;
+    opacity: 0.85;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
